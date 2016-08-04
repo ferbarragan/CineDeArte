@@ -88,15 +88,51 @@
 //			header("Location: prod_listaProductos.php");
 		}
 
-
-		public function get_generos($id) {
+    /* Get the Movie Genres */
+		public function getGenres($id) {
 			if($this->obj_cnx->getConnect()) {
 
-				$query = sprintf("SELECT g.genName as genero FROM movie_has_genre mg left join genre g on mg.genre_id=g.id where mg.movie_id = %s;", $id);
+				$query = sprintf("SELECT g.genName as genre FROM movie_has_genre mg left join genre g on mg.genre_id=g.id where mg.movie_id = %s;", $id);
 				$res = mysql_query($query);
 				return $res;
 			}
 		}
+    /* Get the Movie Countries */
+    public function getCountries($id) {
+      if($this->obj_cnx->getConnect()) {
+
+        $query = sprintf("SELECT c.country as country FROM movie_has_country mc left join country c on mc.country_id=c.id where mc.movie_id = %s;", $id);
+        $res = mysql_query($query);
+        return $res;
+      }
+    }
+    /* Get the Movie Directors */
+    public function getDirectors($id) {
+      if($this->obj_cnx->getConnect()) {
+
+        $query = sprintf("SELECT d.dirName as director FROM movie_has_director md left join director d on md.director_id=d.id where md.movie_id = %s;", $id);
+        $res = mysql_query($query);
+        return $res;
+      }
+    }
+    /* Get the Movie Actors */
+    public function getActors($id) {
+      if($this->obj_cnx->getConnect()) {
+
+        $query = sprintf("SELECT a.actorName as actor FROM movie_has_actor ma left join actor a on ma.actor_id=a.id where ma.movie_id = %s;", $id);
+        $res = mysql_query($query);
+        return $res;
+      }
+    }
+    /* Get the Movie Awards */
+    public function getAwards($id) {
+      if($this->obj_cnx->getConnect()) {
+
+        $query = sprintf("SELECT aw.awardName as award FROM movie_has_award maw left join award aw on maw.award_id=aw.id where maw.movie_id = %s;", $id);
+        $res = mysql_query($query);
+        return $res;
+      }
+    }
 
 		public function get_all(){
 

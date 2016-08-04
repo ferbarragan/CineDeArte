@@ -99,19 +99,39 @@
                                         <td><img height="230" width="155" src="<?php echo utf8_encode($row['image_url'])?>" class="center-block" alt="Película"></td>
                                         <td>
                                             <b>Título:</b> <?php echo utf8_encode($row['title'])?> </br></br>
-                                            Descripción: <?php echo utf8_encode($row['description'])?> </br>
-                                            Género: &emsp;
-
-
-
-
+                                            <b>Sinopsis:</b> <?php echo utf8_encode($row['description'])?> </br>
+                                            <b>Género:</b> &emsp;
                                             <?php
-                                            $rs2 = $Pelicula->get_generos($row['id']);
-                                            while( $row2 = mysql_fetch_array($rs2)){
+                                            $genresRes = $Pelicula->getGenres($row['id']);
+                                            while ($row2 = mysql_fetch_array($genresRes)){
+                                                echo utf8_encode($row2['genre'])?> &emsp;
+                                            <?php }?> </br>
+                                            <b>País:</b> &emsp;
+                                            <?php
+                                            $countriesRes = $Pelicula->getCountries($row['id']);
+                                            while ($row2 = mysql_fetch_array($countriesRes)){
+                                              echo utf8_encode($row2['country'])?> &emsp;
+                                            <?php  } ?> </br>
+                                            <b>Año:</b> <?php echo utf8_encode($row['year'])?> </br>
+                                            <b>Dirigida por:</b> &emsp;
+                                            <?php
+                                            $directorsRes = $Pelicula->getDirectors($row['id']);
+                                            while ($row2 = mysql_fetch_array($directorsRes)){
+                                              echo utf8_encode($row2['director'])?> &emsp;
+                                            <?php  } ?> </br>
+                                            <b>Protagonizada por:</b> &emsp;
+                                            <?php
+                                            $actorsRes = $Pelicula->getActors($row['id']);
+                                            while ($row2 = mysql_fetch_array($actorsRes)){
+                                              echo utf8_encode($row2['actor'])?> &emsp;
+                                            <?php  } ?> </br>
+                                            <b>Premios:</b> &emsp;
+                                            <?php
+                                            $awardsRes = $Pelicula->getAwards($row['id']);
+                                            while ($row2 = mysql_fetch_array($awardsRes)){
+                                              echo utf8_encode($row2['award'])?> &emsp;
+                                            <?php  } ?> </br>
 
-                                             echo utf8_encode($row2['genero'])?> &emsp;
-
-                                            <?php }?>
                                             <p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete<?php echo $row['id']?>" ><span class="glyphicon glyphicon-film"></span></button></p>
 
 
