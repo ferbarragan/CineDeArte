@@ -1,11 +1,13 @@
 <?php
 
 ?>
+
 <script language="JavaScript">
      function borrado() {
        alert("Borrado correctamente");
   }
- </script>
+</script>
+
 <?php
 	include("../Conection.php");
 
@@ -25,7 +27,7 @@
 		}
 
 		public function agregar($descripcion, $precio,$url_imagen){
-
+/*
 		if($this->obj_cnx->getConnect()) {
 
 				date_default_timezone_set("America/Mexico_City");
@@ -47,11 +49,12 @@
 					$this->exito = false;
 				}
 			}
-
+*/
 			//header("Location: listaCoordinadores.php");
 		}
 
 		public function modificar($descripcion, $precio, $url_imagen, $id){
+      /*
 			if($this->obj_cnx->getConnect()) {
 				$this->exito = true;
 				$query = sprintf("UPDATE peliculas SET descripcion = '%s', precio = '%s', url_imagen='%s'
@@ -65,10 +68,11 @@
 					$this->exito = false;
 				}
 			}
-
+*/
 			}
 
 		public function borrar($id){
+      /*
 			if($this->obj_cnx->getConnect()) {
 				$this->exito = true;
 
@@ -84,7 +88,7 @@
 				echo("<script> Function borrado()</script>");
 
 			}
-
+*/
 //			header("Location: prod_listaProductos.php");
 		}
 
@@ -135,22 +139,17 @@
     }
 
 		public function get_all(){
-
-		// instrucciones_metodo;
 			if($this->obj_cnx->getConnect())
 			{
 				$squery = "SELECT * FROM movie;";
 				$res = mysql_query($squery);
 				return $res;
 			}
-
 		}
 
-
-
 	}
-
-	?><?php
+	?>
+  <?php
 
 		$Pelicula = new Pelicula();
 

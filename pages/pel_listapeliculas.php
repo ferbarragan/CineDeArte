@@ -46,21 +46,9 @@
 
 </head>
 
-
-
-
-
 <body>
-
-
-
    <div id="wrapper">
-
         <!-- Navigation -->
-
-
-
-
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">&emsp;Cine de Arte</h1>
@@ -72,12 +60,10 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
+                            <!--
                             <button type="button" class="btn btn-primary btn-xs" data-title="New" data-toggle="modal"  data-target="#new" class="btn btn-outline btn-primary">+ Nueva películas</button>
-
+                            -->
                         </div>
-
-
-
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="dataTable_wrapper">
@@ -90,7 +76,6 @@
                                     </thead>
                                     <tbody>
                                     <?php
-
                                     include ("pel_admin_peliculas.php");
                                             $rs = $Pelicula->get_all();
                                     while( $row = mysql_fetch_array($rs)){?>
@@ -132,50 +117,31 @@
                                               echo utf8_encode($row2['award'])?> &emsp;
                                             <?php  } ?> </br>
 
-                                            <p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete<?php echo $row['id']?>" ><span class="glyphicon glyphicon-film"></span></button></p>
-
-
-
-
-
-
-
-
-
-
+                                            <p data-placement="top" data-toggle="tooltip" title="Trailer"><button class="btn btn-danger btn-xs" data-title="Trailer" data-toggle="modal" data-target="#delete<?php echo $row['id']?>" ><span class="glyphicon glyphicon-film"></span></button></p>
                                         </td>
                                     </tr>
-
                                     <div class="modal fade" id="delete<?php echo $row['id']?>" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
                                         <div class="modal-dialog">
-                                        <div class="modal-content">
-                                              <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                                            <h4 class="modal-title custom_align" id="Heading">Película <?php echo utf8_encode($row['description'])?></h4>
-                                          </div>
-                                              <div class="modal-body">
-
-
-                                           <iframe width="560" height="315" src="<?php echo utf8_encode($row['clip_url'])?>" frameborder="0" allowfullscreen></iframe>
-                                          </div>
-                                            <div class="modal-footer ">
-
-                                          </div>
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                                    <h4 class="modal-title custom_align" id="Heading"><?php echo utf8_encode($row['title'])?></h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <iframe width="560" height="315" src="<?php echo utf8_encode($row['clip_url'])?>" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+                                                <div class="modal-footer ">
+                                                </div>
                                             </div>
                                         <!-- /.modal-content -->
-                                      </div>
-                                          <!-- /.modal-dialog -->
                                         </div>
-
-
-
+                                        <!-- /.modal-dialog -->
+                                    </div>
                                     <?php   }?>
-
                                     </tbody>
                                 </table>
                             </div>
                             <!-- /.table-responsive -->
-
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -209,9 +175,6 @@
         });
     });
     </script>
-
-
-
 </body>
 
 </html>

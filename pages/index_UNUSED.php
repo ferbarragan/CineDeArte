@@ -1,46 +1,46 @@
 <?php
-if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
+if(!isset($_SESSION))
+    {
+        session_start();
+    }
 if($_SESSION['rol']=="GERENTE")
  echo '';
  else
-    echo '<script>window.location="/megamisiones/pages/login/login.html"</script>';
+    echo '<script>window.location="/CineDeArte/pages/index.html"</script>';
     include ("mis_admin_misioneros.php");
 
     $query = sprintf("SELECT count(id) as misioneros from misioneros where deleted_at is null");
     $lastid = mysql_query($query);
-    $row = mysql_fetch_array($lastid);  
+    $row = mysql_fetch_array($lastid);
     $nmisioneros=$row['misioneros'];
 
     $query = sprintf("SELECT count(id) as familias from familias where deleted_at is null");
     $lastid = mysql_query($query);
-    $row = mysql_fetch_array($lastid);  
+    $row = mysql_fetch_array($lastid);
     $nfamilias=$row['familias'];
 
     $query = sprintf("SELECT SUM(if(monto-pagado <= 0, 1, 0)) as inscripciones FROM cxc;");
     $lastid = mysql_query($query);
-    $row = mysql_fetch_array($lastid);  
+    $row = mysql_fetch_array($lastid);
     $inscripciones=$row['inscripciones'];
 
     $query = sprintf("SELECT FORMAT(sum(monto),2) as ingresos FROM encabezados;");
     $lastid = mysql_query($query);
-    $row = mysql_fetch_array($lastid);  
-    $ingresos=$row['ingresos'];  
+    $row = mysql_fetch_array($lastid);
+    $ingresos=$row['ingresos'];
 
     $query = sprintf("select format(sum(monto),2) as dia from encabezados where fecha=curdate();");
     $lastid = mysql_query($query);
-    $row = mysql_fetch_array($lastid);  
-    $dia=$row['dia']; 
+    $row = mysql_fetch_array($lastid);
+    $dia=$row['dia'];
 
     $query = sprintf("select count(id) as pueblos FROM pueblos;");
     $lastid = mysql_query($query);
-    $row = mysql_fetch_array($lastid);  
-    $pueblos=$row['pueblos'];  
+    $row = mysql_fetch_array($lastid);
+    $pueblos=$row['pueblos'];
 
-    
- 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +75,7 @@ if($_SESSION['rol']=="GERENTE")
 
       <!-- jQuery -->
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
- 
+
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -114,7 +114,7 @@ if($_SESSION['rol']=="GERENTE")
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                
+
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -165,7 +165,7 @@ if($_SESSION['rol']=="GERENTE")
                                 <li>
                                     <a href="rep_cant_ven.php">Reporte cantidad vendida</a>
                                 </li>
-                                
+
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -192,7 +192,7 @@ if($_SESSION['rol']=="GERENTE")
                         </li>
 
 
-                       
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -205,14 +205,14 @@ if($_SESSION['rol']=="GERENTE")
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">DASHBOARD INSCRIPCIONES 
-                    
+                    <h1 class="page-header">DASHBOARD INSCRIPCIONES
+
                 <a href="dashmoney.php"  class="btn btn-warning btn-lg align-righ"><span class="glyphicon glyphicon-usd"></span> Dashboard económico</a>
             </h1>
 
                 </div>
 
-                 
+
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
@@ -262,7 +262,7 @@ if($_SESSION['rol']=="GERENTE")
                         </a>
                     </div>
                 </div>
-              
+
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-yellow">
                         <div class="panel-heading">
@@ -307,12 +307,12 @@ if($_SESSION['rol']=="GERENTE")
                         </a>
                     </div>
                 </div>
-                
+
             </div>
 
 
-                
-            
+
+
     </div>
     <!-- /#wrapper -->
 
